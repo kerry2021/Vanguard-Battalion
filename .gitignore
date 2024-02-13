@@ -1,0 +1,13 @@
+# Ignore auto-generated Unity files
+/Library/
+/Temp/
+/obj/
+/Builds/
+/*.sln
+/*.csproj
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Visual Studio Code specific files
+.vscode/
