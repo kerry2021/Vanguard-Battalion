@@ -5,6 +5,7 @@
 /Builds/
 /*.sln
 /*.csproj
+/Logs/
 
 # Ignore macOS specific files
 .DS_Store

@@ -475,7 +475,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825190379}
-  - component: {fileID: 1825190381}
   - component: {fileID: 1825190380}
   m_Layer: 0
   m_Name: SpawnPoint
@@ -506,20 +505,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825190378}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f7cc83850c2594ea749a96f7b790bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soldierPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
---- !u!114 &1825190381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825190378}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3951f56188d197e41a26c435aa444407, type: 3}
@@ -529,5 +514,5 @@ MonoBehaviour:
   - {fileID: 746034168342593510, guid: 96c8637cf0f90134590620f6c40b14de, type: 3}
   team2:
   - {fileID: 746034168342593510, guid: 96c8637cf0f90134590620f6c40b14de, type: 3}
-  team1Spawn: {x: 50, y: 0, z: 0}
-  team2Spawn: {x: -50, y: 0, z: 0}
+  team1Spawn: {x: 0, y: 0, z: 0}
+  team2Spawn: {x: 100, y: 0, z: 0}
