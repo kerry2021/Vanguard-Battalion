@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1133630482295407460}
   - component: {fileID: -5577013841905517788}
   - component: {fileID: 5473872220898758381}
-  - component: {fileID: 1126349190752609817}
+  - component: {fileID: 5927327105156024189}
   m_Layer: 0
   m_Name: SoldierPrefab
   m_TagString: Untagged
@@ -98,16 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6133fa52464ce43b8db0e6910d4603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 0
   armor: 0
-  attackDamage: 20
-  attackCooldown: 2
-  armorPiercingRatio: 0
-  attackRange: 10
-  damageRadius: 0
-  movementSpeed: 5
-  observers: []
---- !u!114 &1126349190752609817
+  movementSpeed: 0
+--- !u!114 &5927327105156024189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,8 +110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 746034168342593510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c4aa37125f1d247bc5c3b88197d144, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9681aada8040a488200d7061d1701f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCounter: 0
+  attackDamage: 0
+  armorPiercingRatio: 0
+  attackRange: 0
+  damageRadius: 0
   attackCooldown: 0

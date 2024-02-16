@@ -16,7 +16,7 @@ public class BattleManager : MonoBehaviour
         {            
             Instantiate(team1[i], team1Spawn, Quaternion.identity);
             CombatantStats combatantStats = team1[i].GetComponent<CombatantStats>();
-            AttackCounter attackCounter = team1[i].GetComponent<AttackCounter>();
+            Weapon weapon = team1[i].GetComponent<Weapon>();
             
             //Add AttackCounter to observe the combatant
             //check that observers is not null
@@ -24,8 +24,6 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Observers is null");
                 combatantStats.observers = new List<IObserver<CombatantStats>>();
             }
-            combatantStats.observers.Add(attackCounter);
-            combatantStats.OnUpdated();
 
         }
         Debug.Log("Team 1 added");

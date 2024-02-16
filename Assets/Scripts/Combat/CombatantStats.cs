@@ -6,33 +6,25 @@ using System.Collections.Generic;
 public class CombatantStats : MonoBehaviour
 {
     // Attributes
-    float health; // Health points (HP)
-    float armor; // Armor points
-    float attackDamage; // Attack damage
-    float attackCooldown;
-    float armorPiercingRatio; // Armor piercing ratio (0 to 1, 0 = no armor piercing, 1 = full armor piercing)
-    float attackRange; // Attack range
-    float damageRadius; // Damage radius for area-of-effect attacks
-    float movementSpeed; // Movement speed    
+    public float health; // Health points (HP)
+    public float armor; // Armor points
+    public float movementSpeed; // Movement speed    
+
+    public bool isFriendly; // Is the combatant friendly to the player?
 
     public List<IObserver<CombatantStats>> observers;
     
 
     // Constructor
-    CombatantStats (float initialHealth, float initialArmor, float initialAttackDamage, float initialAttackCooldown,
-                     float initialArmorPiercingRatio, float initialAttackRange, float initialDamageRadius,
-                     float initialMovementSpeed)
+    CombatantStats (float initialHealth, float initialArmor, float initialMovementSpeed, bool isFriendly)
     {
         health = initialHealth;
         armor = initialArmor;
-        attackDamage = initialAttackDamage;
-        attackCooldown = initialAttackCooldown;
-        armorPiercingRatio = initialArmorPiercingRatio;
-        attackRange = initialAttackRange;
-        damageRadius = initialDamageRadius;
-        movementSpeed = initialMovementSpeed;        
+        movementSpeed = initialMovementSpeed;
+        this.isFriendly = isFriendly;
         observers = new List<IObserver<CombatantStats>>();
-    }
+    }                     
+
 
     void Awake()
     {
@@ -65,56 +57,6 @@ public class CombatantStats : MonoBehaviour
         set
         {
             armor = value;
-            OnUpdated();
-        }
-    }
-
-    public float AttackDamage
-    {
-        get { return attackDamage; }
-        set
-        {
-            attackDamage = value;
-            OnUpdated();
-        }
-    }
-
-    public float AttackCooldown
-    {
-        get { return attackCooldown; }
-        set
-        {
-            attackCooldown = value;
-            OnUpdated();
-        }
-    }
-
-    public float ArmorPiercingRatio
-    {
-        get { return armorPiercingRatio; }
-        set
-        {
-            armorPiercingRatio = value;
-            OnUpdated();
-        }
-    }
-
-    public float AttackRange
-    {
-        get { return attackRange; }
-        set
-        {
-            attackRange = value;
-            OnUpdated();
-        }
-    }
-
-    public float DamageRadius
-    {
-        get { return damageRadius; }
-        set
-        {
-            damageRadius = value;
             OnUpdated();
         }
     }
