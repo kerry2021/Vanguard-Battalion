@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6133fa52464ce43b8db0e6910d4603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: -16700
   armor: 0
   movementSpeed: 0
+  isFriendly: 0
 --- !u!114 &5927327105156024189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9681aada8040a488200d7061d1701f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 0
+  attackDamage: 10
   armorPiercingRatio: 0
   attackRange: 0
   damageRadius: 0
-  attackCooldown: 0
+  attackCooldown: 5
+  target: {fileID: 746034168342593510}

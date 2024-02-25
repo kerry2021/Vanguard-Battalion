@@ -8,6 +8,8 @@ public class BattleManager : MonoBehaviour
     public List<GameObject> team2 = new List<GameObject>();
     public Vector3 team1Spawn = new Vector3(0, 0, 0);
     public Vector3 team2Spawn = new Vector3(100, 0, 0);
+    private TargetingManager targetingManager;
+    private DamageManager damageManager;
      
 
     void Start(){           
@@ -32,12 +34,16 @@ public class BattleManager : MonoBehaviour
             Instantiate(team2[i], team2Spawn, Quaternion.identity);                       
         }
         Debug.Log("Team 2 added");
+
+        damageManager = new DamageManager(team1, team2);
+        targetingManager = new TargetingManager(team1, team2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        damageManager.Update();
+        targetingManager.Update();
     }
 
 
