@@ -23,9 +23,10 @@ public class TargetingManager
             Weapon[] weapons = team1[i].GetComponents<Weapon>();
             //for each weapon, get the closest combatant in team2
             for (int j = 0; j < weapons.Length; j++)
-            {
+            {                
                 GameObject target = GetClosestCombatant(team2, team1[i].transform.position);
                 weapons[j].target = target;
+                Debug.Log("Targeting " + target.GetComponent<CombatantStats>().id);
             }
         }
 

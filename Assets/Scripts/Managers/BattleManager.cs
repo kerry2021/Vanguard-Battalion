@@ -12,13 +12,15 @@ public class BattleManager : MonoBehaviour
     private DamageManager damageManager;
      
 
-    void Start(){           
+    void Awake(){           
         Debug.Log("Starting battle");
         for (int i = 0; i < team1.Count; i++)
         {            
             Instantiate(team1[i], team1Spawn, Quaternion.identity);
             CombatantStats combatantStats = team1[i].GetComponent<CombatantStats>();
             Weapon weapon = team1[i].GetComponent<Weapon>();
+            weapon.active = true;
+            //Debug.Log("weapon hash in BattleManager" + weapon.GetHashCode());
             
             //Add AttackCounter to observe the combatant
             //check that observers is not null
@@ -36,14 +38,17 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Team 2 added");
 
         damageManager = new DamageManager(team1, team2);
+        damageManager.AddObservers();
         targetingManager = new TargetingManager(team1, team2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        damageManager.Update();
+        //damageManager.Update();
         targetingManager.Update();
+        team1[0].GetComponent<CombatantStats>().Awake();
+        team1[0].GetComponent<Weapon>().Update();
     }
 
 

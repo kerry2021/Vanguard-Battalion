@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Apply weapons' damage to combatants and use LineRenderer to visualize the attack
 
-public class DamageManager
+public class DamageManager: IObserver<Weapon>
 {
     public List<GameObject> team1;
     public List<GameObject> team2;
@@ -14,8 +14,8 @@ public class DamageManager
         this.team2 = team2;
     }
 
-    // Update is called once per frame
-    public void Update()
+    
+    public void AddObservers()
     {
         for (int i = 0; i < team1.Count; i++)
         {            
@@ -23,14 +23,10 @@ public class DamageManager
             for (int j = 0; j < weapons.Length; j++)
             {
                 Weapon currentWeapon = weapons[j];
-                if(currentWeapon.target != null){
-                    //Apply damage to the target
-                    CombatantStats targetStats = currentWeapon.target.GetComponent<CombatantStats>();
-                    targetStats.health -= currentWeapon.attackDamage*(1-(targetStats.armor*(1-currentWeapon.armorPiercingRatio))/100);
-                    Debug.Log("Target health: " + targetStats.health);
-                    //Draw a line between the attacker and the target
-                    DrawLine(team1[i].transform.position, currentWeapon.target.transform.position);
-                }
+
+                Debug.Log("Adding observer");
+                currentWeapon.AddObserver(this);                
+                
             }
         }
 
@@ -39,14 +35,22 @@ public class DamageManager
             Weapon[] weapons = team2[i].GetComponents<Weapon>();
             for (int j = 0; j < weapons.Length; j++)
             {
-                Weapon currentWeapon = weapons[j];
-                if(currentWeapon.target != null){
-                    //Apply damage to the target
-                    CombatantStats targetStats = currentWeapon.target.GetComponent<CombatantStats>();
-                    targetStats.health -= currentWeapon.attackDamage*(1-(targetStats.armor*(1-currentWeapon.armorPiercingRatio))/100);
-                    //Draw a line between the attacker and the target
-                    DrawLine(team2[i].transform.position, currentWeapon.target.transform.position);
-                }
+                Weapon currentWeapon = weapons[j];                
+                //currentWeapon.observers.Add(this);
+                
+            }
+        }
+    }
+
+    public void OnUpdated(Weapon weapon)
+    {
+        //check that the weapon has a target and it is in range
+        if(weapon.target != null && Vector3.Distance(weapon.owner.transform.position, weapon.target.transform.position) <= weapon.attackRange){
+            CombatantStats targetStats = weapon.target.GetComponent<CombatantStats>();
+            if(targetStats != null){
+                Debug.Log("Dealing damage to " + targetStats.id);
+                targetStats.Health -= weapon.attackDamage;
+                DrawLine(weapon.owner.transform.position, weapon.target.transform.position);
             }
         }
     }

@@ -513,6 +513,6 @@ MonoBehaviour:
   team1:
   - {fileID: 746034168342593510, guid: 96c8637cf0f90134590620f6c40b14de, type: 3}
   team2:
-  - {fileID: 746034168342593510, guid: 96c8637cf0f90134590620f6c40b14de, type: 3}
+  - {fileID: 746034168342593510, guid: 490e924c25ec2a246878c1581575fdb9, type: 3}
   team1Spawn: {x: 0, y: 0, z: 0}
   team2Spawn: {x: 100, y: 0, z: 0}

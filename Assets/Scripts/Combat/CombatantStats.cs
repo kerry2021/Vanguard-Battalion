@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class CombatantStats : MonoBehaviour
 {
     // Attributes
+    public int id;
     public float health; // Health points (HP)
     public float armor; // Armor points
     public float movementSpeed; // Movement speed    
@@ -26,7 +27,7 @@ public class CombatantStats : MonoBehaviour
     }                     
 
 
-    void Awake()
+    public void Awake()
     {
         observers = new List<IObserver<CombatantStats>>();
     }
